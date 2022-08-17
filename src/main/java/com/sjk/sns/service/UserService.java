@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sjk.sns.exception.ErrorCode;
 import com.sjk.sns.exception.SnsApplicationException;
-import com.sjk.sns.model.User;
-import com.sjk.sns.model.entity.UserEntity;
+import com.sjk.sns.exception.model.User;
+import com.sjk.sns.exception.model.entity.UserEntity;
 import com.sjk.sns.repository.UserEntityRepository;
 import com.sjk.sns.util.JwtTokenUtils;
 
@@ -26,6 +26,12 @@ public class UserService {
 
 	@Value("${jwt.token.expired-time-ms}")
 	private Long expiredTimeMS;
+
+	public User loadUserByUserName(String userName) {
+		return userEntityRepository.findByUsername(userName).map(User::fromEntity)
+			.orElseThrow(() -> new SnsApplicationException(ErrorCode.USER_NOT_FOUND,
+				String.format("%s is not founded", userName)));
+	}
 
 	@Transactional
 	public User join(String userName, String password) {

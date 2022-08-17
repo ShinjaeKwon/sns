@@ -1,6 +1,6 @@
 package com.sjk.sns.fixture;
 
-import com.sjk.sns.model.entity.UserEntity;
+import com.sjk.sns.exception.model.entity.UserEntity;
 
 public class UserEntityFixture {
 

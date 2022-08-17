@@ -14,8 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.sjk.sns.exception.ErrorCode;
 import com.sjk.sns.exception.SnsApplicationException;
+import com.sjk.sns.exception.model.entity.UserEntity;
 import com.sjk.sns.fixture.UserEntityFixture;
-import com.sjk.sns.model.entity.UserEntity;
 import com.sjk.sns.repository.UserEntityRepository;
 
 @SpringBootTest

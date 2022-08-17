@@ -1,4 +1,4 @@
-package com.sjk.sns.model.entity;
+package com.sjk.sns.exception.model.entity;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import com.sjk.sns.model.UserRole;
+import com.sjk.sns.exception.model.UserRole;
 
 import lombok.Getter;
 import lombok.Setter;

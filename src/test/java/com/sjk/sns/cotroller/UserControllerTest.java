@@ -19,7 +19,7 @@ import com.sjk.sns.controller.request.UserJoinRequest;
 import com.sjk.sns.controller.request.UserLoginRequest;
 import com.sjk.sns.exception.ErrorCode;
 import com.sjk.sns.exception.SnsApplicationException;
-import com.sjk.sns.model.User;
+import com.sjk.sns.exception.model.User;
 import com.sjk.sns.service.UserService;
 
 @SpringBootTest

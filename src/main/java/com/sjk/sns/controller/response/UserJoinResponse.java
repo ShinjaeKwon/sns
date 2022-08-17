@@ -1,7 +1,7 @@
 package com.sjk.sns.controller.response;
 
-import com.sjk.sns.model.User;
-import com.sjk.sns.model.UserRole;
+import com.sjk.sns.exception.model.User;
+import com.sjk.sns.exception.model.UserRole;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class UserJoinResponse {
 	public static UserJoinResponse fromUser(User user) {
 		return new UserJoinResponse(
 			user.getId(),
-			user.getUserName(),
+			user.getUsername(),
 			user.getUserRole()
 		);
 	}
