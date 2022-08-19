@@ -1,4 +1,4 @@
-package com.sjk.sns.exception.model;
+package com.sjk.sns.model;
 
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.sjk.sns.exception.model.entity.UserEntity;
+import com.sjk.sns.model.entity.UserEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

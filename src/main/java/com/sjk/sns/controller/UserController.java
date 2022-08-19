@@ -10,7 +10,7 @@ import com.sjk.sns.controller.request.UserLoginRequest;
 import com.sjk.sns.controller.response.Response;
 import com.sjk.sns.controller.response.UserJoinResponse;
 import com.sjk.sns.controller.response.UserLoginResponse;
-import com.sjk.sns.exception.model.User;
+import com.sjk.sns.model.User;
 import com.sjk.sns.service.UserService;
 
 import lombok.RequiredArgsConstructor;

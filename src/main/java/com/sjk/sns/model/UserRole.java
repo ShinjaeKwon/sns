@@ -1,4 +1,4 @@
-package com.sjk.sns.exception.model;
+package com.sjk.sns.model;
 
 public enum UserRole {
 

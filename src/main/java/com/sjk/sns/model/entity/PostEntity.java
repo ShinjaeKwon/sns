@@ -1,15 +1,15 @@
-package com.sjk.sns.exception.model.entity;
+package com.sjk.sns.model.entity;
 
 import java.sql.Timestamp;
 import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -17,32 +17,30 @@ import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import com.sjk.sns.exception.model.UserRole;
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-@Table(name = "\"user\"")
-@SQLDelete(sql = "UPDATED \"user\" SET deleted_at = NOW() where id =?")
+@Table(name = "\"post\"")
+@SQLDelete(sql = "UPDATE \"post\" SET deleted_at = NOW() where id =?")
 @Where(clause = "deleted_at is NULL")
 @Entity
-public class UserEntity {
+public class PostEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "user_name")
-	private String username;
+	@Column(name = "title")
+	private String title;
 
-	@Column(name = "paasword")
-	private String password;
+	@Column(name = "body", columnDefinition = "TEXT")
+	private String body;
 
-	@Column(name = "role")
-	@Enumerated(EnumType.STRING)
-	private UserRole role = UserRole.USER;
+	@JoinColumn(name = "user_id")
+	@ManyToOne
+	private UserEntity user;
 
 	@Column(name = "registered_at")
 	private Timestamp registeredAt;
@@ -63,11 +61,12 @@ public class UserEntity {
 		this.updatedAt = Timestamp.from(Instant.now());
 	}
 
-	public static UserEntity of(String userName, String password) {
-		UserEntity userEntity = new UserEntity();
-		userEntity.setUsername(userName);
-		userEntity.setPassword(password);
-		return userEntity;
+	public static PostEntity of(String title, String body, UserEntity userEntity) {
+		PostEntity entity = new PostEntity();
+		entity.setTitle(title);
+		entity.setBody(body);
+		entity.setUser(userEntity);
+		return entity;
 	}
 
 }
